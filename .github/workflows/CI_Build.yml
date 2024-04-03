@@ -50,8 +50,27 @@ jobs:
         run: mvn deploy  -f bar-pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.TESTSECRET }}
-
+      - name: copy
+        run: cp  target/*.war ansible
       - uses: actions/upload-artifact@v4
         with:
-         name: my-artifact
-         path: target/*.bar
+          name: my-application
+          path: ansible
+          retention-days: 5
+      - name: Output artifact ID
+        run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+  deploy:
+    needs: build
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: self-hosted
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: bar-application  
+      - name: Display structure of downloaded files
+        run: ls -ltr
+      - name: Run ansible script
+        shell: bash  
+        run: |
+          ansible-playbook -i webhost.ini main.yml -vvv

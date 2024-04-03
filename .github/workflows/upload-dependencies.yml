@@ -18,7 +18,23 @@ jobs:
           distribution: 'zulu' # Alternative distribution options are available.
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }} # location for the settings.xml file
-  
+      - name: Write settings.xml
+        run: |
+          mkdir -p ~/.m2
+          cat << EOF > ~/.m2/settings.xml
+            <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                                          http://maven.apache.org/xsd/settings-1.0.0.xsd">
+              <servers>
+                <server>
+                  <id>github</id>
+                  <username>${{ github.actor }}</username>
+                  <password>${{ secrets.GITHUB_TOKEN }}</password>
+                </server>
+              </servers>
+            </settings>
+          EOF
       - name: Publish to GitHub Packages Apache Maven
         run:  |
           mvn install:install-file -Dfile=jplugin2.jar -DgroupId=com.ibm.server -DartifactId=jplugin2 -Dversion=1.0.0 -Dpackaging=jar

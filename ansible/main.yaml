@@ -1,0 +1,13 @@
+---
+- name: Deploy GitHub Packages to IBM-Ace 
+  hosts: localhost
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Move File foo to destination bar
+      command: mv /path/to/*.bar /SampleApiproject.generated.bar
+    - name: Deploy Bar file 
+      shell: |
+             mqsireadbar -b SampleApiproject.generated.bar  > SampleApiproject.generated.properties -r 
+             mqsiapplybaroverride -b SampleApiproject.generated.bar -p SampleApiproject.generated.properties -r
+             mqsideploy MyNode --integration-server MyExecutionGroup --bar-file SampleApiproject.generated.bar       

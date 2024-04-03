@@ -5,7 +5,7 @@
   gather_facts: true
   tasks:
     - name: Move File foo to destination bar
-      command: mv /path/to/*.bar /SampleApiproject.generated.bar
+      command: mv *.bar SampleApiproject.generated.bar
     - name: Deploy Bar file 
       shell: |
              mqsireadbar -b SampleApiproject.generated.bar  > SampleApiproject.generated.properties -r 

@@ -4,6 +4,8 @@
   become: true
   gather_facts: true
   tasks:
+    - name: List files in the current directory
+      command: ls *.bar
     - name: Move File foo to destination bar
       command: mv *.bar SampleApiproject.generated.bar
     - name: Deploy Bar file 

@@ -51,7 +51,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TESTSECRET }}
       - name: copy
-        run: cp  target/*.war ansible
+        run: cp  target/*.bar ansible
       - uses: actions/upload-artifact@v4
         with:
           name: my-application

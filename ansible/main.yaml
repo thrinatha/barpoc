@@ -5,12 +5,7 @@
   gather_facts: true
   tasks:
     - name: Move File foo to destination bar
-      ansible.builtin.file:
-        src: *.bar
-        dest: SampleApiproject.generated.bar
-        state: link
-        force: yes
-      #command: mv *.bar SampleApiproject.generated.bar
+      command: mv *.bar SampleApiproject.generated.bar
     - name: Deploy Bar file 
       shell: |
              mqsireadbar -b SampleApiproject.generated.bar  > SampleApiproject.generated.properties -r 

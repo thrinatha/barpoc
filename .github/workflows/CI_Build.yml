@@ -73,4 +73,4 @@ jobs:
       - name: Run ansible script
         shell: bash  
         run: |
-          ansible-playbook main.yaml -vvv
+          ansible-playbook -i ibmace-hosts main.yaml -vvv

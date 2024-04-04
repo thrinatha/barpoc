@@ -1,2 +1,2 @@
 [ace-servers]
-localhost     ansible_connection=local
+127.0.0.1    

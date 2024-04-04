@@ -1,2 +1,3 @@
+
 Bar file example
 "# barproject" 

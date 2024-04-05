@@ -4,16 +4,16 @@
   become: true
   gather_facts: true
   tasks:
-    - name: Copy a single file
-  ansible.windows.win_copy:
-    src: "*.bar"
-    dest: "C:\\Temp\\SampleApiproject.generated.bar"
+    - name: Copy file to windows
+      ansible.windows.win_copy:
+        src: "*.bar"
+        dest: "C:\Users\SampleApiproject.generated.bar"
 
-- name: Deploy Bar file 
-  ansible.windows.win_command: 
-    cmd: |
-      mqsireadbar -b C:\\Temp\\SampleApiproject.generated.bar  > C:\\Temp\\SampleApiproject.generated.properties -r 
-      mqsiapplybaroverride -b C:\\Temp\\SampleApiproject.generated.bar -p C:\\Temp\\SampleApiproject.generated.properties -r
-      mqsideploy MyNode --integration-server MyExecutionGroup --bar-file C:\\Temp\\SampleApiproject.generated.bar
-  args:
-    chdir: "C:\\Temp"
+    - name: Deploy Bar file 
+      ansible.windows.win_command: 
+        cmd: |
+          mqsireadbar -b C:\Users\SampleApiproject.generated.bar  > C:\Users\SampleApiproject.generated.properties -r 
+          mqsiapplybaroverride -b C:\Users\SampleApiproject.generated.bar -p C:\Users\SampleApiproject.generated.properties -r
+          mqsideploy MyNode --integration-server MyExecutionGroup --bar-file C:\Users\SampleApiproject.generated.bar
+      args:
+        chdir: "C:\Users\"

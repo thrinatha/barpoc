@@ -1,8 +1,10 @@
-
-
-
-
-- name: Copy a single file
+---
+- name: Deploy GitHub Packages to IBM-Ace 
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Copy a single file
   ansible.windows.win_copy:
     src: "*.bar"
     dest: "C:\\Temp\\SampleApiproject.generated.bar"

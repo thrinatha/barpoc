@@ -1,0 +1,17 @@
+
+
+
+
+- name: Copy a single file
+  ansible.windows.win_copy:
+    src: "*.bar"
+    dest: "C:\\Temp\\SampleApiproject.generated.bar"
+
+- name: Deploy Bar file 
+  ansible.windows.win_command: 
+    cmd: |
+      mqsireadbar -b C:\\Temp\\SampleApiproject.generated.bar  > C:\\Temp\\SampleApiproject.generated.properties -r 
+      mqsiapplybaroverride -b C:\\Temp\\SampleApiproject.generated.bar -p C:\\Temp\\SampleApiproject.generated.properties -r
+      mqsideploy MyNode --integration-server MyExecutionGroup --bar-file C:\\Temp\\SampleApiproject.generated.bar
+  args:
+    chdir: "C:\\Temp"

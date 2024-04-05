@@ -16,4 +16,4 @@
           mqsiapplybaroverride -b C:\Users\SampleApiproject.generated.bar -p C:\Users\SampleApiproject.generated.properties -r
           mqsideploy MyNode --integration-server MyExecutionGroup --bar-file C:\Users\SampleApiproject.generated.bar
       args:
-        chdir: "C:\Users\"
+        chdir: "C:\\Users\"

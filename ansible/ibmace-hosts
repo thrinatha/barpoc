@@ -1,13 +1,2 @@
 [ace-servers]
 127.0.0.1    
-
-[win]
-192
-
-[win:vars]
-ansible_connection=winrm
-ansible_port=
-ansible_user=
-ansible_password=
-ansible_winrm_transport=ntlm
-ansible_winrm_server_cert_validation=ignore

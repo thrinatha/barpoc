@@ -11,5 +11,5 @@
         mv *.bar SampleApiproject.generated.bar
     - name: Deploy Bar file 
       shell: |
-             mqsiapplybaroverride -b SampleApiproject.generated.bar -p SampleApiproject.generated.properties -r
-             mqsideploy MyNode --integration-server MyExecutionGroup --bar-file SampleApiproject.generated.bar       
+             sh /home/ec2-user/Software/ace-12.0.12.0/server/bin/mqsiapplybaroverride -b SampleApiproject.generated.bar -p SampleApiproject.generated.properties -r
+             sh /home/ec2-user/Software/ace-12.0.12.0/server/bin/mqsideploy MyNode --integration-server MyExecutionGroup --bar-file SampleApiproject.generated.bar       

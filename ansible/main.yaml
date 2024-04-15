@@ -15,10 +15,13 @@
              . ./mqsiprofile
     - name: Read Bar file 
       shell: |
+             cd /home/ec2-user/Software/ace-12.0.12.0/server/bin
              . ./mqsireadbar -b /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar  > /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.properties -r 
     - name: override Bar file 
       shell: |
+             cd /home/ec2-user/Software/ace-12.0.12.0/server/bin
              . ./mqsiapplybaroverride -b /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar -p /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.properties -r
     - name: Deploy Bar file 
       shell: |
+             cd /home/ec2-user/Software/ace-12.0.12.0/server/bin
              . ./mqsideploy MyNode --integration-server MyExecutionGroup --bar-file /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar       

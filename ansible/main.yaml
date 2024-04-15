@@ -16,3 +16,4 @@
       become_user: ec2-user
       shell: |
              sh /home/ec2-user/Software/ace-12.0.12.0/server/mqsi.sh
+             

@@ -11,14 +11,20 @@
         pwd 
         ls
         mv *.bar /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar
-    - name: deploy Bar file 
-      become: yes
-      become_user: ec2-user
+    - name: set path
       shell: |
              export MQSI_WORKPATH=/home/ec2-user/Software/ace-12.0.12.0/server
              export PATH=$MQSI_WORKPATH/bin:$PATH
              cd /home/ec2-user/Software/ace-12.0.12.0/server/bin/
              . ./mqsiprofile
+    - name: Read Bar file 
+      become: yes
+      become_user: ec2-user
+      shell: |
              mqsireadbar -b /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar  > /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.properties -r 
+    - name: Override Bar file 
+      shell: |  
              mqsiapplybaroverride -b /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar > /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.properties -r
+    - name: deploy Bar file 
+      shell: | 
              mqsideploy MyBroker --integration-server MyExecutionGroup --bar-file /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar

@@ -1,2 +1,2 @@
 [ace-servers]
-13.235.31.45  
+13.235.31.45   ansible_connection=local

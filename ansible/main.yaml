@@ -10,6 +10,5 @@
       command: mv *.bar SampleApiproject.generated.bar
     - name: Deploy Bar file 
       shell: |
-             mqsireadbar -b SampleApiproject.generated.bar  > SampleApiproject.generated.properties -r 
              mqsiapplybaroverride -b SampleApiproject.generated.bar -p SampleApiproject.generated.properties -r
              mqsideploy MyNode --integration-server MyExecutionGroup --bar-file SampleApiproject.generated.bar       

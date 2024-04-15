@@ -13,6 +13,7 @@
       shell: |
              cd /home/ec2-user/Software/ace-12.0.12.0/server/bin
              . ./mqsiprofile
-    - name: Deploy Bar file 
+    - name: Read Bar file 
       shell: |
-             sh /home/ec2-user/Software/ace-12.0.12.0/server/bin/mqsideploy MyNode --integration-server MyExecutionGroup --bar-file /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar       
+             cd /home/ec2-user/Software/ace-12.0.12.0/server/bin
+             . ./mqsireadbar -b /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar  > /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.properties -r 

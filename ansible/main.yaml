@@ -1,6 +1,6 @@
 ---
 - name: Deploy GitHub Packages to IBM-Ace 
-  hosts: all
+  hosts: all 
   become: true
   gather_facts: true
   tasks:

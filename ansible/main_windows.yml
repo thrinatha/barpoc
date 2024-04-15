@@ -8,7 +8,6 @@
       ansible.windows.win_copy:
         src: "*.bar"
         dest: "C:\\Users\\SampleApiproject.generated.bar"
-
     - name: Deploy Bar file 
       ansible.windows.win_command: 
         cmd: |

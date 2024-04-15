@@ -12,4 +12,5 @@
     - name: deploy Bar file 
       shell: |
              cd /home/ec2-user/Software/ace-12.0.12.0/server/bin
-             . ./home/ec2-user/Software/ace-12.0.12.0/server/bin/mqsideploy MyNode --integration-server MyExecutionGroup --bar-file /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar
+             . ./mqsiprofile
+             . ./mqsideploy MyNode --integration-server MyExecutionGroup --bar-file /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar

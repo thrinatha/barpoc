@@ -1,5 +1,4 @@
 name: CI_BAR
-
 on:
   push:
     branches:

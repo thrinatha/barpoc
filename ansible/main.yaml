@@ -4,10 +4,11 @@
   become: true
   gather_facts: true
   tasks:
-    - name: List files in the current directory
-      command: pwd
     - name: Move File foo to destination bar
-      command: mv *.bar SampleApiproject.generated.bar
+      shell: |
+        pwd 
+        ls
+        mv *.bar SampleApiproject.generated.bar
     - name: Deploy Bar file 
       shell: |
              mqsiapplybaroverride -b SampleApiproject.generated.bar -p SampleApiproject.generated.properties -r

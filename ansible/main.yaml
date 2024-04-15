@@ -18,7 +18,9 @@
              cd /home/ec2-user/Software/ace-12.0.12.0/server/bin/
              . ./mqsiprofile
     - name: Read Bar file 
+      become: yes
+      become_user: ec2-user
       shell: |
              cd /home/ec2-user/Software/ace-12.0.12.0/server/bin/
-             mqsireadbar -b /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar  > /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.properties -r 
+             . ./mqsireadbar -b /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.bar  > /home/ec2-user/actions-runner/_work/barpoc/barpoc/SampleApiproject.generated.properties -r 
     

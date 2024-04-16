@@ -1,10 +1,10 @@
 name: sample
 
 on:
-  push:
-    branches:
-      - feature/*
-  pull_request:
+  #push:
+   # branches:
+    #  - feature/*
+  #pull_request:
     types: [opened, synchronize, reopened]
 jobs:
 
